@@ -349,7 +349,7 @@ v.hidden=false;
 s.textContent='This media can only be opened once.';
 })
 .catch(e=>s.textContent=e.message);
-</script>`
+</script>`;
 
 app.get("/api/media/:id",(req,res)=>{
 const x=items.get(req.params.id);
