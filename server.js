@@ -297,6 +297,7 @@ async function go(){
   }catch(e){
   s.textContent=e.message||'Something went wrong.';
 }
+</script>`));
 
 
 app.get("/",(_,res)=>res.send(home));
