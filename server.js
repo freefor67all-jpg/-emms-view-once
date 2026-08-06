@@ -296,12 +296,12 @@ async function go(){
     s.textContent='Done. Send the link.';
 
   }catch(e){
-    s.textContent=e.message||'Something went wrong.';
-  }
+  s.textContent=e.message||'Something went wrong.';
 }
 </script>`;
 
 app.get("/",(_,res)=>res.send(home));
+
 
 app.post("/api/upload",upload.single("media"),(req,res)=>{
 if(!req.file)return res.status(400).json({error:"No media uploaded"});
