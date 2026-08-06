@@ -82,7 +82,11 @@ x.height=b.height*m;
 
 const ctx=x.getContext('2d');
 
-const r=new MediaRecorder(
+const stream=x.captureStream(30);
+const mimeTypes=['video/mp4','video/webm;codecs=vp8','video/webm'];
+const mimeType=mimeTypes.find(type=>MediaRecorder.isTypeSupported(type));
+if(!mimeType)throw Error('This browser cannot create the video format.');
+const r=new MediaRecorder(stream,{mimeType});
 x.captureStream(30),
 {mimeType:'video/webm'}
 );
@@ -93,7 +97,7 @@ if(e.data.size)a.push(e.data);
 };
 
 const v=await new Promise(resolve=>{
-r.onstop=()=>resolve(new Blob(a,{type:'video/webm'}));
+r.onstop=()=>resolve(new Blob(a,{type:mimeType}));
 
 r.start();
 
