@@ -5,8 +5,7 @@ fs.mkdirSync(dir,{recursive:true});
 
 const upload=multer({dest:dir,limits:{fileSize:50*1024*1024}});
 const items=new Map();
-
-const const home=`<!doctype html>
+const  home=`<!doctype html>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>EMMS — Turn Your Moments Into Stories</title>
 
